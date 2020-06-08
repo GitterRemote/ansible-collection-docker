@@ -54,7 +54,9 @@
     - os/default.yml
 
 - name: Docker | CE | APT | Install docker-ce
-  apt: name=docker-ce state=present
+  apt:
+    name=docker-ce=18.06.1~ce~3-0~ubuntu
+    state=present
   notify: Docker | Restart Docker
   register: task_result
   until: task_result is success
